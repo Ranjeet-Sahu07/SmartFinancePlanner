@@ -1,0 +1,119 @@
+=============================================================
+  SMARTFINANCEPLANNER - UI DESIGN PLAN (JavaFX + FXML + CSS)
+=============================================================
+
+GOAL: Deliver a professional, dashboard-style desktop UI that is clean, modern, and intuitive, using JavaFX with FXML and CSS.
+
+1) Global Layout
+- App Layout: BorderPane
+  - Top: Header Bar
+  - Left: Sidebar Navigation
+  - Center: Main Content Area (switches via navigation)
+  - Bottom: Footer/Status Bar
+- Fonts: Prefer "Poppins" or "Roboto"; fallback to system sans-serif
+- Color Tokens:
+  - Primary: #2E86DE (blue)
+  - Accent:  #00B894 (green)
+  - Background: #F8F9FA (light)
+  - Text Primary: #2C3E50
+  - Text Muted:  #6C757D
+  - Card Background: #FFFFFF
+  - Border/Subtle: #E9ECEF
+
+2) Header Bar (Top)
+- HBox with spacing and padding (16px)
+- Left: App logo + title "SmartFinancePlanner"
+- Center: Current date/time (auto-updates via Timeline)
+- Right: Profile/avatar icon (placeholder) and settings button
+- Style: Subtle drop shadow; background: white; bottom border: #E9ECEF
+
+3) Sidebar Navigation (Left)
+- VBox with buttons (ToggleButton or JFXButton)
+- Sections: Dashboard | Calculators | Expenses | Reports | Coming Soon
+- Active item highlighted with primary color background and white text
+- Hover: Slight background tint and left accent border
+- Width: ~240px; background: #FFFFFF; full height
+
+4) Dashboard Screen (Center)
+- GridPane/VBox stack:
+  - Row 1: Summary Cards (3 columns)
+    - Total Investments
+    - Active Loans
+    - Monthly Expenses
+    - Each card: rounded rectangle, subtle elevation, big number + label + icon
+  - Row 2: Charts
+    - Left: PieChart (Expense Distribution)
+    - Right: LineChart (Investment Growth Over Time)
+- Spacing between elements: 16px; grid gaps: 16px; responsive resizing
+- Pastel palette for charts; legend at bottom/right as needed
+
+5) Calculators Screen
+- TabPane with 3 Tabs: EMI | SIP | FD
+- Each tab uses a responsive form:
+  - Inputs on the left in a Form VBox (labels + TextFields/ComboBoxes)
+  - Results on the right in a Card VBox: computed values (EMI/maturity, totals)
+- Buttons: Primary (calculate), Secondary (reset)
+- Validation: highlight invalid inputs with red border and helper text
+
+6) Expense Tracker Screen
+- Split layout (VBox):
+  - Toolbar: Add Expense button, Month selector, Export CSV button
+  - TableView: columns [Date | Category | Description | Amount]
+  - Add Expense Form (Dialog or collapsible pane):
+    - Fields: DatePicker, Category (ComboBox), Description (TextField), Amount (TextField)
+    - Save/Cancel buttons
+- Monthly total shown in footer area of the screen
+
+7) Reports Screen
+- Placeholder layout for future expansion (bar/line charts)
+- Muted text: "Reports module coming soon"
+
+8) Coming Soon Screen
+- Grid of ToggleButtons for roadmap features:
+  - AI Financial Advisor, Real-Time Investment Tracker, Mobile App, Smart Notifications,
+    Tax & Inflation Tools, Crypto Tracker, Cloud Sync, Financial Health Score,
+    Loan Comparison Tool, ESG/Green Investment Insights
+- On click: show popup dialog with message:
+  "🚧 Coming Soon in Future Update (2025+) 🚀"
+- Use accent color for toggles, with gentle glow when active
+
+9) Footer / Status Bar (Bottom)
+- HBox with left-aligned app version, center-aligned status messages, right-aligned quick tips
+- Subtle top border (#E9ECEF), background white, small font size
+
+10) CSS (styles/style.css) Guidelines
+- Root variables (using lookup colors):
+  - -color-primary: #2E86DE;
+  - -color-accent:  #00B894;
+  - -color-bg:      #F8F9FA;
+  - -color-text:    #2C3E50;
+  - -color-muted:   #6C757D;
+  - -color-card:    #FFFFFF;
+  - -color-border:  #E9ECEF;
+- Buttons: rounded corners (8px), hover elevate (shadow), focus ring
+- Cards: border-radius 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.06)
+- TabPane: underline indicator with primary color; selected tab bold
+- TableView: striped rows; header with muted background
+- Charts: pastel series colors; clean gridlines; subtle tooltips
+
+11) Accessibility & Responsiveness
+- Minimum 14px font size, 4.5:1 contrast for text on backgrounds
+- Keyboard navigation: focus styles visible on all interactive elements
+- Resizable layout: use HGrow/VGrow and priorities to adapt to window changes
+
+12) File Mapping
+- FXML:
+  - ui/dashboard.fxml      → Dashboard layout
+  - ui/calculators.fxml    → Tabbed calculators
+  - ui/expenses.fxml       → Expense tracker
+  - ui/comingsoon.fxml     → Coming Soon toggles
+- CSS:
+  - styles/style.css       → Global theme and components
+- Images:
+  - images/logo.png        → App logo placeholder
+
+13) Notes
+- Keep logic out of FXML; use Controllers for interaction
+- Apply CSS classes via styleClass for maintainability
+- Use ResourceBundle for future i18n if needed
+- Maintain a consistent 8/16/24 spacing scale
