@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.financeplanner.controllers.CalculatorController">
+    <tabs>
+        <Tab text="EMI">
+            <content>
+                <GridPane hgap="8" vgap="8">
+                    <Label text="Principal" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Rate (%)" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Tenure (months)" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Button text="Calculate" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </content>
+        </Tab>
+        <Tab text="SIP">
+            <content>
+                <GridPane hgap="8" vgap="8">
+                    <Label text="Monthly Invest" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Return Rate (%)" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Years" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Button text="Calculate" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </content>
+        </Tab>
+        <Tab text="FD">
+            <content>
+                <GridPane hgap="8" vgap="8">
+                    <Label text="Principal" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Rate (%)" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Time (years)" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Compounding" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox GridPane.rowIndex="3" GridPane.columnIndex="1">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Yearly"/>
+                                <String fx:value="Half-Yearly"/>
+                                <String fx:value="Quarterly"/>
+                                <String fx:value="Monthly"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Button text="Calculate" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
