@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.financeplanner.controllers.DashboardController">
+    <top>
+        <HBox spacing="16" styleClass="header-bar">
+            <Label text="SmartFinancePlanner" styleClass="app-title" />
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label text="Date/Time" />
+            <Button text="Profile" />
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="8" styleClass="sidebar">
+            <Button text="Dashboard" />
+            <Button text="Calculators" />
+            <Button text="Expenses" />
+            <Button text="Reports" />
+            <Button text="Coming Soon" />
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="16" styleClass="content">
+            <HBox spacing="16">
+                <TitledPane text="Total Investments" expanded="true" />
+                <TitledPane text="Active Loans" expanded="true" />
+                <TitledPane text="Monthly Expenses" expanded="true" />
+            </HBox>
+            <HBox spacing="16">
+                <PieChart title="Expense Distribution" />
+                <LineChart>
+                    <xAxis>
+                        <CategoryAxis label="Time" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Amount" />
+                    </yAxis>
+                </LineChart>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="8" styleClass="footer"><Label text="v1.0.0-SNAPSHOT" /></HBox>
+    </bottom>
+</BorderPane>
