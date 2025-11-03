@@ -1,0 +1,253 @@
+=============================================================
+  SMARTFINANCEPLANNER - TOOLS, DEPENDENCIES & SETUP STEPS
+=============================================================
+
+## 📋 REQUIRED TOOLS & SOFTWARE
+
+1. **Java Development Kit (JDK)**
+   - Version: Java 17 or higher
+   - Download: https://www.oracle.com/java/technologies/downloads/
+   - Verify: java -version
+
+2. **Apache Maven**
+   - Version: 3.6+ recommended
+   - Download: https://maven.apache.org/download.cgi
+   - Verify: mvn -version
+
+3. **Git Version Control**
+   - Download: https://git-scm.com/downloads
+   - Verify: git --version
+
+4. **Integrated Development Environment (IDE)** - Choose one:
+   - IntelliJ IDEA (Community/Ultimate)
+   - Eclipse IDE for Java Developers
+   - Visual Studio Code with Java Extension Pack
+   - NetBeans IDE
+
+5. **JavaFX SDK** (Auto-managed by Maven)
+   - Version: 21.0.1
+   - Automatically downloaded via Maven dependencies
+
+---
+
+## 📦 PROJECT DEPENDENCIES
+
+### Core Dependencies (defined in pom.xml):
+
+1. **JavaFX Controls** - v21.0.1
+   - UI components (buttons, labels, text fields, etc.)
+
+2. **JavaFX FXML** - v21.0.1
+   - XML-based UI layout definitions
+
+3. **JavaFX Graphics** - v21.0.1
+   - Charts (PieChart, LineChart, BarChart)
+   - Shapes and visual effects
+
+4. **JFoenix (Optional)** - v9.0.10
+   - Material Design components for JavaFX
+   - Enhanced UI styling
+
+---
+
+## 🚀 SETUP STEPS
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Ranjeet-Sahu07/SmartFinancePlanner.git
+cd SmartFinancePlanner
+```
+
+### Step 2: Verify Java Installation
+```bash
+java -version
+# Should display: java version "17" or higher
+```
+
+### Step 3: Verify Maven Installation
+```bash
+mvn -version
+# Should display Maven version 3.6+ and Java version
+```
+
+### Step 4: Download Dependencies
+```bash
+mvn clean install
+# This downloads all required JavaFX libraries and plugins
+```
+
+### Step 5: Compile the Project
+```bash
+mvn clean compile
+# Compiles all Java source files
+```
+
+### Step 6: Run the Application
+```bash
+mvn exec:java
+# Launches the SmartFinancePlanner application
+```
+
+Alternatively, use the JavaFX Maven Plugin:
+```bash
+mvn javafx:run
+```
+
+---
+
+## 🛠️ BUILD COMMANDS REFERENCE
+
+### Clean Build Artifacts
+```bash
+mvn clean
+```
+
+### Compile Source Code
+```bash
+mvn compile
+```
+
+### Run Tests (when tests are added)
+```bash
+mvn test
+```
+
+### Package Application (JAR)
+```bash
+mvn package
+# Creates executable JAR in target/ directory
+```
+
+### Run Application
+```bash
+mvn exec:java
+# or
+mvn javafx:run
+```
+
+### Full Clean Build + Run
+```bash
+mvn clean compile exec:java
+```
+
+---
+
+## 💻 IDE-SPECIFIC SETUP
+
+### IntelliJ IDEA:
+1. Open IntelliJ IDEA
+2. File → Open → Select SmartFinancePlanner folder
+3. Wait for Maven dependencies to download
+4. Right-click Main.java → Run 'Main.main()'
+
+### Eclipse:
+1. Open Eclipse
+2. File → Import → Maven → Existing Maven Projects
+3. Select SmartFinancePlanner folder
+4. Right-click project → Run As → Java Application
+
+### VS Code:
+1. Open VS Code
+2. File → Open Folder → Select SmartFinancePlanner
+3. Install Java Extension Pack (if not installed)
+4. Press F5 to run or use terminal: mvn exec:java
+
+---
+
+## 🐛 TROUBLESHOOTING
+
+### Issue: "Error: JavaFX runtime components are missing"
+**Solution:**
+- Ensure you're using mvn exec:java or mvn javafx:run
+- Do NOT use java -jar directly without JavaFX modules
+
+### Issue: "Maven dependencies not downloading"
+**Solution:**
+```bash
+mvn clean install -U
+# -U forces update of dependencies
+```
+
+### Issue: "Java version mismatch"
+**Solution:**
+- Verify JAVA_HOME environment variable points to JDK 17+
+- Update pom.xml if using different Java version
+
+### Issue: "JavaFX CSS not loading"
+**Solution:**
+- Ensure style.css is in src/main/resources/styles/
+- Check FXML files have correct CSS path references
+
+---
+
+## 📊 PROJECT STRUCTURE VALIDATION
+
+Before running, ensure these folders exist:
+```
+SmartFinancePlanner/
+├── src/main/java/com/financeplanner/
+│   ├── controllers/
+│   ├── models/
+│   └── utils/
+├── src/main/resources/
+│   ├── ui/
+│   ├── styles/
+│   └── images/
+└── pom.xml
+```
+
+---
+
+## 🔧 OPTIONAL ENHANCEMENTS
+
+### Add Database Support (Future):
+```xml
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.43.0.0</version>
+</dependency>
+```
+
+### Add Logging:
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>2.0.9</version>
+</dependency>
+```
+
+### Add JSON Support:
+```xml
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
+```
+
+---
+
+## 📝 NOTES
+
+- Java 17+ is required for modern JavaFX features
+- Maven handles all dependency management automatically
+- No need to manually download JavaFX SDK
+- Use mvn exec:java for consistent cross-platform execution
+- All resources must be placed in src/main/resources/
+- FXML files use relative paths to CSS and images
+
+---
+
+## 🌐 USEFUL LINKS
+
+- JavaFX Documentation: https://openjfx.io/
+- Maven Guide: https://maven.apache.org/guides/
+- JFoenix GitHub: https://github.com/sshahine/JFoenix
+- JavaFX CSS Reference: https://openjfx.io/javadoc/21/javafx.graphics/javafx/scene/doc-files/cssref.html
+
+---
+
+Last Updated: November 2025
+Version: 1.0.0-SNAPSHOT
